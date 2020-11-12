@@ -1,6 +1,6 @@
 {
   "name": "victor-falcon/laravel-task",
-  "description": "A laravel task",
+  "description": "A simple laravel task trigger",
   "license": "MIT",
   "keywords": [
     "laravel",
@@ -9,8 +9,10 @@
   "type": "library",
   "authors": [
     {
-      "name": "",
-      "email": ""
+      "name": "Víctor Falcón",
+      "email": "hola@victorfalcon.es",
+      "homepage": "https://victorfalcon.es",
+      "role": "Developer"
     }
   ],
   "require": {
