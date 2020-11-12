@@ -48,7 +48,7 @@ final class CreateUserShop implements Task
 and trigger it:
 
 ```php
-	$shop = CreateUserShop::trigger($user);
+$shop = CreateUserShop::trigger($user);
 ```
 
 ## Credits
