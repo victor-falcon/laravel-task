@@ -15,7 +15,13 @@ composer require victor-falcon/laravel-task
 ```
 
 ## Usage
-Create a simple task:
+Create a simple task using:
+
+```
+artisan make:task Shop/CreateUserShop
+```
+
+> You can pass Shop/CreateUserShop to create the class in a sub-folder or just the task name. The default path is `app/Task`.
 
 ```php
 <?php
@@ -26,7 +32,7 @@ namespace App\Actions\Shop;
 
 use VictorFalcon\LaravelTask\Task;
 use VictorFalcon\LaravelTask\Taskable;
-  
+
 final class CreateUserShop implements Task
 {
 	use Taskable;
@@ -37,7 +43,7 @@ final class CreateUserShop implements Task
 	{
 		$this->creator = $creator;
 	}
-  
+
 	public function __invoke(User $user): Shop
 	{
 		// Create your shop
@@ -54,7 +60,7 @@ $shop = CreateUserShop::trigger($user);
 ## Todo
 - [X] Make simple task with dependency injection a simple way to trigger them
 - [ ] Make Task chains to trigger a queue of tasks in sequence
-- [ ] Make a command to auto generate tasks
+- [X] Make a command to auto generate tasks
 - [ ] Make a command to add IDE helper information to autocomplete params
 
 ## Credits

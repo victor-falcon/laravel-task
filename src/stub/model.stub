@@ -1,0 +1,15 @@
+<?php
+
+namespace {{ namespace }};
+
+use VictorFalcon\LaravelTask\Task;
+use VictorFalcon\LaravelTask\Taskable;
+
+final class {{ class }} implements Task
+{
+    use Taskable;
+
+    public function __invoke()
+    {
+    }
+}
