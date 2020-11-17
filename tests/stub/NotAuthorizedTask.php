@@ -7,19 +7,17 @@ namespace VictorFalcon\LaravelTask\Tests\stub;
 use VictorFalcon\LaravelTask\Task;
 use VictorFalcon\LaravelTask\Taskable;
 
-class BasicTask extends Task
+class NotAuthorizedTask extends Task
 {
     use Taskable;
 
-    private bool $input;
-
-    public function __construct(bool $input)
+    public function authorize(): bool
     {
-        $this->input = $input;
+        return false;
     }
 
     public function handle(): bool
     {
-        return $this->input;
+        return true;
     }
 }

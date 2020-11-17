@@ -8,9 +8,6 @@ trait Taskable
 {
     public static function trigger(...$arguments): PendingTrigger
     {
-        return new PendingTrigger(
-            app()->make(self::class),
-            $arguments
-        );
+        return new PendingTrigger(new self(...$arguments));
     }
 }

@@ -11,7 +11,7 @@ class ThrowableTask extends Task
 {
     use Taskable;
 
-    public function __invoke()
+    public function handle()
     {
         throw new \Exception('Task trigger');
     }

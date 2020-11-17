@@ -18,7 +18,7 @@ class ValidationTask extends Task
         ];
     }
 
-    public function __invoke(): array
+    public function handle(): array
     {
         return $this->data ?? [];
     }

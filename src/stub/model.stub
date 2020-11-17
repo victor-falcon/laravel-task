@@ -9,7 +9,7 @@ final class {{ class }} extends Task
 {
     use Taskable;
 
-    public function __invoke()
+    public function handle()
     {
     }
 }

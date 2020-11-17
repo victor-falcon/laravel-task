@@ -1,0 +1,14 @@
+{
+  "name": "dummy/dummy",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "victor",
+      "email": "user@gmail.com"
+    }
+  ],
+  "require": {
+  }
+}
