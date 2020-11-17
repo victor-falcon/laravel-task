@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace VictorFalcon\LaravelTask;
 
-interface Task
+class Task
 {
+    public array $data;
 }

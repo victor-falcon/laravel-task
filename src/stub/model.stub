@@ -5,7 +5,7 @@ namespace {{ namespace }};
 use VictorFalcon\LaravelTask\Task;
 use VictorFalcon\LaravelTask\Taskable;
 
-final class {{ class }} implements Task
+final class {{ class }} extends Task
 {
     use Taskable;
 

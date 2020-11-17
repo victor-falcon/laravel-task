@@ -6,10 +6,11 @@ namespace VictorFalcon\LaravelTask;
 
 trait Taskable
 {
-    public static function trigger(...$arguments)
+    public static function trigger(...$arguments): PendingTrigger
     {
-        $self = app()->make(self::class);
-
-        return  ($self)(...$arguments);
+        return new PendingTrigger(
+            app()->make(self::class),
+            $arguments
+        );
     }
 }
