@@ -44,7 +44,7 @@ final class CreateUserShop implements Task
 		$this->creator = $creator;
 	}
 
-	public function __invoke(User $user): Shop
+	public function handle(User $user): Shop
 	{
 		// Create your shop
 	}
