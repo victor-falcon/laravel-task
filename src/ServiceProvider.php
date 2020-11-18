@@ -2,6 +2,7 @@
 
 namespace VictorFalcon\LaravelTask;
 
+use VictorFalcon\LaravelTask\Console\Commands\IdeHelpCommand;
 use VictorFalcon\LaravelTask\Console\Commands\MakeTaskCommand;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
@@ -17,6 +18,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 MakeTaskCommand::class,
+                IdeHelpCommand::class,
             ]);
         }
     }

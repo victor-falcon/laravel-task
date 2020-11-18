@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 class MakeTaskCommand extends GeneratorCommand
 {
-    protected $name = 'make:task';
+    protected $name = 'task:make';
 
     protected $description = 'Create a new task class';
 
