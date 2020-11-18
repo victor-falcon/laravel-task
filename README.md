@@ -57,12 +57,6 @@ and trigger it:
 $shop = CreateUserShop::trigger($user);
 ```
 
-## Todo
-- [X] Make simple task with dependency injection a simple way to trigger them
-- [ ] Make Task chains to trigger a queue of tasks in sequence
-- [X] Make a command to auto generate tasks
-- [ ] Make a command to add IDE helper information to autocomplete params
-
 ## Credits
 - [Víctor Falcón](https://github.com/victor-falcon)
 - [All contributors](https://github.com/victor-falcon/laravel-task/graphs/contributors)
