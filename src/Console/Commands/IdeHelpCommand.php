@@ -64,11 +64,15 @@ class IdeHelpCommand extends Command
             $this->comment("Loading task '$taskName'", OutputInterface::VERBOSITY_VERBOSE);
 
             $task = $this->getLaravel()->make($taskName);
-            $reflection = new \ReflectionMethod($task, 'handle');
-            $args = $this->getParameters($reflection);
-            $returnType = $this->getReturnType($reflection);
+            $constructorReflection = $reflectionClass->getConstructor();
+            $handleReflection = new \ReflectionMethod($task, 'handle');
 
-            $output .= $this->createPhpDocs($task, $args, $returnType);
+            if ($constructorReflection !== null) {
+                $args = $this->getParameters($constructorReflection);
+                $returnType = $this->getReturnType($handleReflection);
+
+                $output .= $this->createPhpDocs($task, $args, $returnType);
+            }
         }
 
         return $output;
