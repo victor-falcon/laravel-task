@@ -6,10 +6,7 @@ namespace VictorFalcon\LaravelTask;
 
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Factory;
-use Illuminate\Validation\ValidationException;
 
 class PendingTrigger
 {
@@ -24,19 +21,24 @@ class PendingTrigger
 
     public function withValid(array $data): self
     {
-        $validator = Validator::make(
-            $data,
-            $this->task->rules(),
-            $this->task->messages(),
-            $this->task->customAttributes()
-        );
+        try {
+            $validator = Validator::make(
+                $data,
+                $this->task->rules(),
+                $this->task->messages(),
+                $this->task->customAttributes()
+            );
 
-        if ($validator->fails()) {
+            if ($validator->fails()) {
+                $this->error = true;
+                $this->task->validationError($validator);
+            }
+
+            $this->task->validated($validator->validated());
+        } catch (\BadMethodCallException $exception) {
             $this->error = true;
-            $this->task->validationError($validator);
+            throw $exception;
         }
-
-        $this->task->validated($validator->validated());
 
         return $this;
     }
@@ -53,6 +55,13 @@ class PendingTrigger
         return $this->execute();
     }
 
+    private function execute()
+    {
+        $this->executed = true;
+
+        return app()->call([$this->task, 'handle']);
+    }
+
     public function __destruct()
     {
         if ($this->executed === false && $this->error === false) {
@@ -65,13 +74,6 @@ class PendingTrigger
         $this->resolveAuthorization();
 
         return $this->execute();
-    }
-
-    private function execute()
-    {
-        $this->executed = true;
-
-        return app()->call([$this->task, 'handle']);
     }
 
     private function resolveAuthorization(): void
