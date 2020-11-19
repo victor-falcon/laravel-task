@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace VictorFalcon\LaravelTask\Console\Commands;
 
+use App\Models\User;
 use Composer\Autoload\ClassMapGenerator;
 use Illuminate\Console\Command;
 use ReflectionClass;
@@ -167,11 +168,17 @@ class IdeHelpCommand extends Command
         $classname = $reflection->getShortName();
         $argsString = implode(', ', $args);
 
+        $user = '\\' . User::class;
+
         return <<<TEXT
 
 namespace $namespace {
     /**
-     * @method static $return trigger($argsString)
+     * @method static self trigger($argsString)
+     * @method self by($user \$user)
+     * @method self withValid(array \$data)
+     * @method $return result
+     * @method $return forceResult
      */
     class $classname extends \VictorFalcon\LaravelTask\Task {}
 }
