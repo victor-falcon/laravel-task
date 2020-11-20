@@ -5,6 +5,8 @@
 [![Packagist](https://poser.pugx.org/victor-falcon/laravel-task/d/total.svg)](https://packagist.org/packages/victor-falcon/laravel-task)
 [![Packagist](https://img.shields.io/packagist/l/victor-falcon/laravel-task.svg)](https://packagist.org/packages/victor-falcon/laravel-task)
 
+[🇪🇸 Documentación en español aqui](https://victorfalcon.es/laravel-task/)
+
 **Table of content:**
 - [Installation](#installation)
 - [Usage](#usage)
