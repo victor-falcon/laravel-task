@@ -1,7 +1,4 @@
-
-
-# 🔥 Laravel Task
-###  A simple way to trigger some specific task in a clean and simple way
+![Laravel Task](https://banners.beyondco.de/Laravel%20Tasks.png?theme=dark&packageName=victor-falcon%2Flaravel-task&pattern=glamorous&style=style_1&description=A+simple+way+to+trigger+actions&md=1&showWatermark=0&fontSize=100px&images=code)
 
 [![GitHub Workflow Status](https://github.com/victor-falcon/laravel-task/workflows/Run%20tests/badge.svg)](https://github.com/victor-falcon/laravel-task/actions)
 [![Packagist](https://img.shields.io/packagist/v/victor-falcon/laravel-task.svg)](https://packagist.org/packages/victor-falcon/laravel-task)
