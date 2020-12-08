@@ -68,12 +68,12 @@ class IdeHelpCommand extends Command
             $constructorReflection = $reflectionClass->getConstructor();
             $handleReflection = new \ReflectionMethod($task, 'handle');
 
-            if ($constructorReflection !== null) {
-                $args = $this->getParameters($constructorReflection);
-                $returnType = $this->getReturnType($handleReflection);
+            $args = ($constructorReflection !== null) ?
+                $this->getParameters($constructorReflection) :
+                [];
+            $returnType = $this->getReturnType($handleReflection);
 
-                $output .= $this->createPhpDocs($task, $args, $returnType);
-            }
+            $output .= $this->createPhpDocs($task, $args, $returnType);
         }
 
         return $output;
