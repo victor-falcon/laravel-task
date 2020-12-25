@@ -64,16 +64,14 @@ class IdeHelpCommand extends Command
 
             $this->comment("Loading task '$taskName'", OutputInterface::VERBOSITY_VERBOSE);
 
-            $task = $this->getLaravel()->make($taskName);
             $constructorReflection = $reflectionClass->getConstructor();
-            $handleReflection = new \ReflectionMethod($task, 'handle');
-
+            $handleReflection = new \ReflectionMethod($taskName, 'handle');
             $args = ($constructorReflection !== null) ?
                 $this->getParameters($constructorReflection) :
                 [];
             $returnType = $this->getReturnType($handleReflection);
 
-            $output .= $this->createPhpDocs($task, $args, $returnType);
+            $output .= $this->createPhpDocs($taskName, $args, $returnType);
         }
 
         return $output;
@@ -161,9 +159,9 @@ class IdeHelpCommand extends Command
         );
     }
 
-    private function createPhpDocs(Task $task, array $args, string $return): string
+    private function createPhpDocs(string $taskName, array $args, string $return): string
     {
-        $reflection = new ReflectionClass($task);
+        $reflection = new ReflectionClass($taskName);
         $namespace = $reflection->getNamespaceName();
         $classname = $reflection->getShortName();
         $argsString = implode(', ', $args);
@@ -185,3 +183,4 @@ namespace $namespace {
 TEXT;
     }
 }
+
