@@ -8,6 +8,7 @@ use Illuminate\Validation\ValidationException;
 use Orchestra\Testbench\TestCase;
 use VictorFalcon\LaravelTask\ServiceProvider;
 use VictorFalcon\LaravelTask\Tests\stub\ValidationTask;
+use VictorFalcon\LaravelTask\Tests\stub\WrongValidationTask;
 
 class ValidationTaskTest extends TestCase
 {
@@ -32,5 +33,12 @@ class ValidationTaskTest extends TestCase
                 'name' => '12',
             ])
             ->result();
+    }
+
+    public function testItThrowsAnErrorWhenThereAreSomeError(): void
+    {
+        $this->expectExceptionMessage('Method Illuminate\Validation\Validator::validateInvalidaValidationRule does not exist.');
+
+        WrongValidationTask::trigger()->withValid(['name' => 'Jhon Doe']);
     }
 }
