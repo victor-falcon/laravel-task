@@ -35,7 +35,7 @@ class PendingTrigger
             }
 
             $this->task->validated($validator->validated());
-        } catch (\BadMethodCallException $exception) {
+        } catch (\Exception $exception) {
             $this->error = true;
             throw $exception;
         }
