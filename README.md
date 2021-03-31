@@ -24,11 +24,11 @@ Install via composer
 composer require victor-falcon/laravel-task
 ```
 
-## Usage 
+## Usage
 ### 1. Basic usage
 Create a simple task using:
 
-```
+```bash
 artisan task:make Shop/CreateUserShop
 ```
 
@@ -129,6 +129,13 @@ $product = CreateProduct::trigger()->withValid($data)->result();
 
 ## Generate IDE Help
 In order to make more easy to write and use your task you can generate a `_ide_helper_tasks.php` file automatically with the `artisan task:ide-help` command.
+
+## Update config
+If you want, you can publish the package config to customize, for example, where do you want you task to be store at:
+
+```shell
+artisan vendor:publish --tag=laravel-task
+```
 
 
 ## Credits
