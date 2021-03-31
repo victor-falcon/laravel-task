@@ -21,7 +21,10 @@
 Install via composer
 
 ```bash
+# PHP >= 8
 composer require victor-falcon/laravel-task
+# Previous PHP versions
+composer require victor-falcon/laravel-task:1.1.4
 ```
 
 ## Usage

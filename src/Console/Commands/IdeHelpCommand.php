@@ -116,7 +116,7 @@ class IdeHelpCommand extends Command
 
         /** @var \ReflectionParameter $param */
         foreach ($method->getParameters() as $param) {
-            $paramClass = $param->getClass();
+            $paramClass = $param->getType();
             $paramType = $param->getType();
 
             if ($paramClass !== null) {
