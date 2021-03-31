@@ -13,7 +13,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $this->publishes([
             self::CONFIG_PATH => config_path('laravel-task.php'),
-        ], 'config');
+        ], ['config', 'laravel-task']);
 
         if ($this->app->runningInConsole()) {
             $this->commands([

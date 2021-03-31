@@ -25,6 +25,11 @@ class MakeTaskCommand extends GeneratorCommand
 
     protected function getDefaultNamespace($rootNamespace)
     {
+        return $rootNamespace.'\\'.$this->getDefaultPath();
+    }
+
+    protected function getDefaultPath(): string
+    {
         $default = config('laravel-task.folders', 'app/Tasks');
         if (is_array($default)) {
             $default = $default[0];
@@ -32,6 +37,6 @@ class MakeTaskCommand extends GeneratorCommand
 
         $default = Str::replaceFirst('app/', '', $default);
 
-        return is_dir(app_path($default)) ? $rootNamespace.'\\'.$default : $rootNamespace;
+        return $default;
     }
 }
