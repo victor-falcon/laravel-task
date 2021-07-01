@@ -135,9 +135,10 @@ class IdeHelpCommand extends Command
                     $default = '[]';
                 } elseif (is_null($default)) {
                     $default = 'null';
-                } else {
+                } elseif (is_string($default)) {
                     $default = "'".trim($default)."'";
                 }
+                
                 $paramStr .= " = $default";
             }
 
